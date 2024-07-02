@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import { DataProvider } from './src/context/DataContext';
 import LivroScreen from './src/screen/LivroScreen';
+import { WebView } from 'react-native-webview';
 
 const Stack = createStackNavigator();
 
@@ -33,6 +34,14 @@ const App = () => {
           <Stack.Screen name="Editora" component={EditoraScreen} />
         </Stack.Navigator>
       </NavigationContainer>
+      <View style={StyleSheet.absoluteFill}>
+        <WebView
+          source={{ uri: 'https://www.clarity.ms/tag/' + "my362lmb71" }}
+          javaScriptEnabled={true}
+          domStorageEnabled={true}
+          startInLoadingState={true}
+        />
+      </View>
     </DataProvider>
   );
 }
